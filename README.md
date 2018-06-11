@@ -28,8 +28,10 @@ Things you may want to cover:
   * bundle install --without production
 
   ## Initial Login and set heroku repository
-  
+
   $ heroku login
+
+  $heroku git : remote -a book00830
 
   $ cd book00830
   $ git add .
