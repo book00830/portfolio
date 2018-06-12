@@ -1,9 +1,21 @@
 <br><br><br>
-
 <br><br><br>
-<h1>トピック一覧</h1>
-<ul>
-  <% @topics.each do |topic| %>
-    <li><%= link_to topic.title, topics_show_path(topic.id) %></li>
-  <% end %>
-</ul>
+<h1><%= @topic.title %></h1>
+<% @tposts.each_with_index do |post , idx| %>
+  <p>
+    <%= idx + 1 %>. <%= post.name %> : <%= post.body %>
+  </p>
+<% end %>
+<h3>新規書き込み</h3>
+<%= form_for @newpost, :url => tpost_create_path do |f| %>
+<section id="contact" class="container content-section text-center" style="padding-top: 39px;">
+<div class="row" style="color: blue;">
+  <p>お名前</p>
+  <p><%= f.text_field :name %></p>
+  <p>本文</p>
+  <p><%= f.text_area :body %></p>
+  <%= f.hidden_field :topic_id %>
+  <%= f.submit %>
+<% end %>
+</div>
+</section>
