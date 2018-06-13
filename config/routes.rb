@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'topics/index'
+  get 'topics/show/:id' => 'topics#show', as: :topics_show
+  post 'topics/create' => 'topics#create'
+  delete 'topics/delete/:id' => 'topics#delete', as: :topic_delete
+  post 'posts/create' => 'tpost#create', as: :tpost_create
+
   resources :posts
   root   'static_pages#home'
   get    '/help',    to: 'static_pages#help'

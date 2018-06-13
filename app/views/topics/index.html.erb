@@ -1,0 +1,22 @@
+<br><br><br>
+<br><br><br>
+
+<h1>トピック一覧</h1>
+<ul>
+  <% @topics.each do |topic| %>
+    <li style="font-size:20px;"><%= link_to topic.title, topics_show_path(topic.id) %>
+    <%= link_to '[Destroy]', topic_delete_path(topic.id), method: :delete, data: {confirm: "削除してもよろしいですか？"} %>
+    </li>
+  <% end %>
+</ul>
+<h2>トピック新規登録</h2>
+<section id="contact" class="container content-section text-center" style="padding-top: 39px;">
+<div class="row">
+<ul style="color: red;">
+<%= form_for @newTopic, :url => {:action => 'create'} do |f| %>
+  <%= f.text_field :title %>
+  <%= f.submit %>
+<% end %>
+</ul>
+</div>
+</section>
